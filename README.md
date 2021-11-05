@@ -1,2 +1,2 @@
 # Projetos-Web
-qualquer projetinho web que eu fizer, eou vou deixar aq
+Qualquer projetinho web que eu fizer, eu vou vou deixar aqui.
