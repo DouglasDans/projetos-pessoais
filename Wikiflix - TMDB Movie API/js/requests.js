@@ -116,7 +116,7 @@ function showMovies(data, tituloData){
     const div =  document.createElement("div");
     div.classList.add("movie-list");
     main.appendChild(div)
-    data.slice(0,5).forEach(movie => {
+    data.slice(0,6).forEach(movie => {
         const {title, poster_path, vote_average, overview,id} = movie;
         const movieEl = document.createElement("div");
         const imgLink = getURL(2);
