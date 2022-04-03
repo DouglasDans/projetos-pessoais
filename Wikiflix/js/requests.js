@@ -1,3 +1,6 @@
+
+
+
 //PEGAR URLs
 
     function getURL(dado){
