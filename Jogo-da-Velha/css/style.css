@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+
+:root{
+    --color1: #111622;
+    --color2: #212837;
+    --color3: #353E53;
+    --color4: #525C74;
+    --color5: #E5E6EB;
+    --color6: #EEEEEE;
+    --color7: #F5F7FA;
+    --color8: #828DA5;
+    --roxo: #A276D9; 
+}
+
+*{
+    box-sizing: border-box;
+    font-family: "Ubuntu";
+}
+
+h1{
+    color: var(--color7);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--color1);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.main-container{
+    background-color:var(--color2);
+    height: 600px;
+    width: 1000px;
+    margin: auto auto;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+    .right-col,.left-col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .right-col{
+        justify-content: flex-start;
+    }
+        .placar{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--color7);
+            user-select: none;
+            gap: 1rem;
+        }
+            .players{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 3rem;
+            }
+            .players .player-versus{
+                font-weight: 600;
+                font-size: 32px;
+                position: relative;
+                top: -1rem;
+            }
+            .player1,.player2{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .player1 svg, .player2 svg{
+                fill: var(--color5);
+            }
+
+            .player1 span,.player2 span{
+                color: var(--color5);
+                font-weight: 500;
+                font-size: 20px;
+                position: relative;
+                top: -0.7rem;
+            }
+
+            .sua-vez-player{
+                font-size: 20px;
+                font-weight: 500;
+                position: relative;
+                top: 1rem;
+            }
+            .sua-vez-player span{
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+
+        .game{
+            background-color: var(--color3);
+            height: 460px;
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: var(--color1) 0 5px 0px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            justify-items: center;
+
+            padding: 2rem;
+            gap: 1rem;
+        
+        }
+            .game-position{
+                height: 120px;
+                width: 120px;
+                background-color: var(--color4);
+                border-radius: 10px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            padding: 0;}
