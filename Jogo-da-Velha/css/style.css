@@ -1,15 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
 :root{
     --color1: #111622;
     --color2: #212837;
     --color3: #353E53;
-    --color4: #525C74;
     --color5: #E5E6EB;
     --color6: #EEEEEE;
     --color7: #F5F7FA;
     --color8: #828DA5;
-    --roxo: #A276D9; 
+    --azul: #2E59C9; 
 }
 
 *{
@@ -40,89 +40,176 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-    .right-col,.left-col{
+    .left-col{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
     .right-col{
-        justify-content: flex-start;
+        display: flex;
+        justify-content: start;
+        align-items: center;
     }
-        .placar{
+        .game-title{
+            font-family: 'Comfortaa', cursive;
+            font-weight: 600;
+            font-size: 36px;
+        }
+        .dados-container{
+            background-color: var(--color3);
+            box-shadow: var(--color1) 0 5px 0px;
+            border-radius: 10px;
+
+            width: 320px;
+            height: 310px;
+            
+            user-select: none;
+
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            color: var(--color7);
-            user-select: none;
-            gap: 1rem;
+            justify-content: space-around;
+
+            color: var(--color5);
+
+            padding: 1rem;
+            
         }
-            .players{
+            .placar-container{
                 display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                gap: 3rem;
             }
-            .players .player-versus{
-                font-weight: 600;
-                font-size: 32px;
-                position: relative;
-                top: -1rem;
-            }
-            .player1,.player2{
+                .player-container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    align-items: center;
+                }
+                    .player-container span{
+                        font-size: 10px;
+                        font-weight: 500;
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                .placar{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 15px;
+                    padding: 15px;
+                    position: relative;
+                    bottom: -7px;
+                }
+                    .placar #pontos-player1, .placar #pontos-player2{
+                        font-weight: 600;
+                        font-size: 24px;
+                    }
+                    .player-versus{
+                        font-weight: 600;
+                        font-size: 16px;
+                    }
+            .sua-vez-jogador{
+                margin-top: 2rem;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
             }
 
-            .player1 svg, .player2 svg{
-                fill: var(--color5);
-            }
-
-            .player1 span,.player2 span{
-                color: var(--color5);
-                font-weight: 500;
-                font-size: 20px;
-                position: relative;
-                top: -0.7rem;
-            }
-
-            .sua-vez-player{
-                font-size: 20px;
-                font-weight: 500;
-                position: relative;
-                top: 1rem;
-            }
-            .sua-vez-player span{
-                font-size: 24px;
-                font-weight: 600;
-            }
-
-
-        .game{
-            background-color: var(--color3);
-            height: 460px;
-            width: 450px;
-            border-radius: 10px;
-            box-shadow: var(--color1) 0 5px 0px;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            align-items: center;
-            justify-items: center;
-
-            padding: 2rem;
-            gap: 1rem;
-        
-        }
-            .game-position{
-                height: 120px;
-                width: 120px;
-                background-color: var(--color4);
+            .game{
+                background-color: var(--color3);
+                height: 460px;
+                width: 450px;
                 border-radius: 10px;
+                box-shadow: var(--color1) 0 5px 0px;
 
-                display: flex;
-                justify-content: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
                 align-items: center;
-            padding: 0;}
+                justify-items: center;
+
+                padding: 2rem;
+                gap: 1rem;
+            
+            /* user-select: none; */}
+                .game-position{
+                    height: 120px;
+                    width: 120px;
+                    background-color: var(--color2);
+                    border-radius: 10px;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                padding: 0;}
+
+                .formaX {
+                    fill: var(--color5);
+                }
+                .forma-win svg{
+                    fill: var(--azul) !important;
+                }
+                .formaO {
+                    stroke: var(--color5);
+                }
+
+.splash-screen{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-iniciar{
+    background-color: var(--color3);
+    box-shadow: var(--color1) 0 5px 0px;
+    border-radius: 10px;
+    width: 600px;
+    height: 450px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-players {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.input-players div{
+    display: flex;
+    flex-direction: column;
+
+}
+.name-win{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.buttons-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.button-finalizar{
+    border: 0;
+    background-color: var(--color1);
+    box-shadow: var(--color2) 0 2px 0px;
+    padding:  0.5rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--color5);
+    cursor: pointer;
+}
+.button-continuar{
+    border: 0;
+    background-color: var(--azul);
+    box-shadow: var(--color2) 0 2px 0px;
+    padding:  0.5rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--color5);
+    cursor: pointer;
+}
