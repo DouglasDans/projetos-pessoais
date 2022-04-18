@@ -22,10 +22,9 @@ let jogador1 = formas[1]
 let jogador2 = formas[0]
 
 let jogadorAtual = 0
-let qntdPartidas = 1
-let pontosJogador1 = 0
-let pontosJogador2 = 0
-
+let partidas = 1
+let fimDeParida = false
+let velha = true
 let checarTurno = false
 let tabuleiro = new Array(9)
 
@@ -64,6 +63,8 @@ function atualizarPlacar() {
 
     const SuaVezContainer = document.querySelector("#SuaVezContainer")
 
+    partidaNumber.textContent = "Partida " + partidas
+
     jogador1Name.textContent = jogador1.nome
     jogador2Name.textContent = jogador2.nome
 
@@ -81,13 +82,11 @@ function atualizarPlacar() {
             <h2>Sua vez <span>${jogador2.nome}</span></h2>
         `
     }
-    
-    
-
 }
 
+
 gamePosition.addEventListener("click", function(e) {
-    if(e.target.matches(".empty-table")){
+    if(e.target.matches(".empty-table") && !fimDeParida){
         e.target.classList.remove("empty-table")
         atualizarPlacar()
         atualizarTabuleiro(e.target)
@@ -97,7 +96,6 @@ gamePosition.addEventListener("click", function(e) {
         verificarVelha()
     }
 })
-
 
 function atualizarTabuleiro(celulaId) {
     let celulaArrayIndice = parseInt(celulaId.id.substr(celulaId.id.length - 1))
@@ -112,32 +110,50 @@ function atualizarTabuleiro(celulaId) {
 }
 
 function verificarVelha() {
+    const SuaVezContainer = document.querySelector("#SuaVezContainer")
     let preenchidos = 0
+
     tabuleiro.forEach(function(celula, i){
         if(celula != undefined){
             preenchidos++
         }
     })
-    if (preenchidos === tabuleiro.length) {
-        alert("Deu Veia")
-        resetarTabuleiro()
+    if (preenchidos === tabuleiro.length && velha) {
+        fimDeParida = true
+        SuaVezContainer.innerHTML = `
+            <span class="name-win">Velha</span>
+            <div class="buttons-container">
+                <button class="button-finalizar" onclick=document.location.reload(true);>Finalizar</button>
+                <button class="button-continuar" onclick=resetarTabuleiro()>Continuar</button>
+            </div>
+        `
     }
 }
 
-function informarVencedor(posicao1, posicao2, posicao3,jogador) {
-    gamePosition.style.user
-    document.querySelector("#game-celula-" + posicao1).classList.add("forma-win")
-    document.querySelector("#game-celula-" + posicao2).classList.add("forma-win")
-    document.querySelector("#game-celula-" + posicao3).classList.add("forma-win")
+function informarVencedor(forma, posicao1, posicao2, posicao3,jogador) {
+    if(forma === "X"){
+        document.querySelector("#game-celula-" + posicao1).classList.add("formaX-win")
+        document.querySelector("#game-celula-" + posicao2).classList.add("formaX-win")
+        document.querySelector("#game-celula-" + posicao3).classList.add("formaX-win")
+    }
+    if(forma === "O"){
+        document.querySelector("#game-celula-" + posicao1).classList.add("formaO-win")
+        document.querySelector("#game-celula-" + posicao2).classList.add("formaO-win")
+        document.querySelector("#game-celula-" + posicao3).classList.add("formaO-win")
+    }
+
     const SuaVezContainer = document.querySelector("#SuaVezContainer")
+
     SuaVezContainer.innerHTML = `
         <span class="name-win">${jogador.nome} Ganhou</span>
         <div class="buttons-container">
-            <button class="button-finalizar">Finalizar</button>
+            <button class="button-finalizar" onclick=document.location.reload(true);>Finalizar</button>
             <button class="button-continuar" onclick=resetarTabuleiro()>Continuar</button>
         </div>
     `
-
+    partidas++
+    fimDeParida = true
+    velha = false
 }
 
 function verificarElementosHorizontal() {
@@ -145,26 +161,26 @@ function verificarElementosHorizontal() {
         if (tabuleiro[i] == 'X' && tabuleiro[i + 1] == 'X' && tabuleiro[i + 2] == 'X'){ 
             jogador1.pontos++ 
             atualizarPlacar()
-            informarVencedor(i, i + 1, i + 2, jogador1)
+            informarVencedor(tabuleiro[i], i, i + 1, i + 2, jogador1)
         }
         if (tabuleiro[i] == 'O' && tabuleiro[i + 1] == 'O' && tabuleiro[i + 2] == 'O'){
             jogador2.pontos++ 
             atualizarPlacar()
-            informarVencedor(i, i + 1, i + 2, jogador2)
+            informarVencedor(tabuleiro[i], i, i + 1, i + 2, jogador2)
         }
     }
 }
 function verificarElementosVertical() {
-    for( var i = 0; i < 7; i += 3) {
+    for( var i = 0; i < 7; i += 1) {
         if (tabuleiro[i] == 'X' && tabuleiro[i + 3] == 'X' && tabuleiro[i + 6] == 'X'){
             jogador1.pontos++ 
             atualizarPlacar()
-            informarVencedor(i, i + 3, i + 6, jogador1)
+            informarVencedor(tabuleiro[i], i, i + 3, i + 6, jogador1)
         }
         if (tabuleiro[i] == 'O' && tabuleiro[i + 3] == 'O' && tabuleiro[i + 6] == 'O'){
             jogador2.pontos++ 
             atualizarPlacar()
-            informarVencedor(i, i + 3, i + 6, jogador2)
+            informarVencedor(tabuleiro[i], i, i + 3, i + 6, jogador2)
         }
     }
 }
@@ -173,22 +189,22 @@ function verificarElementosDiagonal() {
         if (tabuleiro[i] == 'X' && tabuleiro[i + 4] == 'X' && tabuleiro[i + 8] == 'X'){ 
             jogador1.pontos++ 
             atualizarPlacar()
-            informarVencedor(i, i + 4, i + 8, jogador1)
+            informarVencedor(tabuleiro[i], i, i + 4, i + 8, jogador1)
         }
         if (tabuleiro[i] == 'O' && tabuleiro[i + 4] == 'O' && tabuleiro[i + 8] == 'O'){
             jogador2.pontos++ 
             atualizarPlacar()
-            informarVencedor(i, i + 4, i + 8, jogador2)
+            informarVencedor(tabuleiro[i], i, i + 4, i + 8, jogador2)
         }
         if (tabuleiro[i + 2] == 'X' && tabuleiro[i + 4] == 'X' && tabuleiro[i + 6] == 'X'){ 
             jogador1.pontos++ 
             atualizarPlacar()
-            informarVencedor(i + 2, i + 4, i + 6, jogador1)
+            informarVencedor(tabuleiro[i], i + 2, i + 4, i + 6, jogador1)
         }
         if (tabuleiro[i + 2] == 'O' && tabuleiro[i + 4] == 'O' && tabuleiro[i + 6] == 'O'){
             jogador2.pontos++ 
             atualizarPlacar()
-            informarVencedor(i + 2, i + 4, i + 6, jogador2)
+            informarVencedor(tabuleiro[i], i + 2, i + 4, i + 6, jogador2)
         }
     }
 }
@@ -206,7 +222,12 @@ function resetarTabuleiro() {
     <div class="game-position empty-table" id="game-celula-8"></div>
     `
     tabuleiro = new Array(9)
+    jogadorAtual = 0
+    partidas = 1
+    fimDeParida = false
+    velha = true
     checarTurno = false
-
     atualizarPlacar()
+
+    
 }
