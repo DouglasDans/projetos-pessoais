@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Form Multi Etapa</title>
+</head>
+<body>
+    <section class="container-main">
+        <div class="bg-image">
+            <img src="images/bg-sidebar-desktop.svg" alt="">
+        </div>
+        <div class="info-form-container">
+            <form action="" method="post">
+                <div id="step1" class="steps step-1">
+                    <div class="top-step-container">
+                        <div class="title">
+                            <h1>Personal Info</h1>
+                            <span>Please provide your name, email address, and Phone number.</span>
+                        </div>
+                        <div class="inputs-container">
+                            <div class="input-container">
+                                <div>
+                                    <label for="txtName">Name</label>
+                                </div>
+                                <input placeholder="e.g. Stephen King" type="text" id="txtName" >
+                            </div>
+                            <div class="input-container">
+                                <div>
+                                    <label for="txtEmail">Email address</label>
+                                </div>
+                                <input placeholder="e.g. stephenking@lorem.com" type="email" id="txtEmail">
+                            </div>
+                            <div class="input-container">
+                                <div>
+                                    <label for="txtPhone">Phone Number</label>
+                                </div>
+                                <input placeholder="e.g. +1 234 567 890" type="number" id="txtPhone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button type="button" onclick=nextPage() class="next-btn">Next step</button>
+                    </div>
+                </div>
+
+
+                <div id="step2" class="steps step-2">
+                    <div class="top-step-container">
+                        <div class="title">
+                            <h1>Select your plan</h1>
+                            <span>Please provide your name, email address, and Phone number.</span>
+                        </div>
+                        <div class="inputs-container">
+                            <div class="input-container">
+                                <input type="radio" id="arcade-radio" name="plan" value="arcade" >
+                                <label for="arcade-radio">
+                                    <div>
+                                        <div class="option-button">
+                                            <img height="50px" src="images/icon-arcade.svg" alt="">
+                                            <div>
+                                                <h3>Arcade</h3>
+                                                <span class="preco-assinatura">$9/mo</span>
+                                                <span class="free-mouth">2 months free</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="input-container">
+                                <input type="radio" id="advanced-radio" name="plan" value="advanced">
+                                <label for="advanced-radio">
+                                    <div>
+                                        <div class="option-button">
+                                            <img height="50px" src="images/icon-advanced.svg" alt="">
+                                            <div>
+                                                <h3>Advanced</h3>
+                                                <span class="preco-assinatura">$12/mo</span>
+                                                <span class="free-mouth">2 months free</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="input-container">
+                                <input type="radio" id="pro-radio" name="plan" value="pro">
+                                <label for="pro-radio">
+                                    <div>
+                                        <div class="option-button">
+                                            <img height="50px" src="images/icon-pro.svg" alt="">
+                                            <div>
+                                                <h3>Pro</h3>
+                                                <span class="preco-assinatura">$15/mo</span>
+                                                <span class="free-mouth">2 months free</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="switch-radio-container">
+                        <span class="plan-option opt-1 active">Monthly</span>
+                        <label class="switch" for="slider-checkbox">
+                            <input type="checkbox" id="slider-checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="plan-option opt-2">Yearly</span>
+                    </div>
+                    <div class="btn-container">
+                        <button type="button" onclick=backPage()  class="back-btn">Go back</button>
+                        <button type="button" onclick=nextPage()  class="next-btn">Next step</button>
+                    </div>
+                </div>
+                <div id="step3" class="steps step-3">
+                    <div class="top-step-container">
+                        <div class="title">
+                            <h1>Pick add-ons</h1>
+                            <span>Please provide your name, email address, and Phone number.</span>
+                        </div>
+                       <div class="checkboxes-container">
+                            <label class="option-box" for="checkbox-addon-1">
+                                <input type="checkbox" id="checkbox-addon-1">
+                                <div class="content-container">
+                                    <div class="info-addon">
+                                        <span class="checkbox">
+                                        </span>
+                                        <div class="title-info">
+                                            <h3>Online Service</h3>
+                                            <span>Access to multiplayer games</span>
+                                        </div>
+                                    </div>
+                                    <span class="price-addon-btn">+$1/mo</span>
+                                </div>
+                            </label>
+                            <label class="option-box" for="checkbox-addon-2">
+                                <input type="checkbox" id="checkbox-addon-2">
+                                <div class="content-container">
+                                    <div class="info-addon">
+                                        <span class="checkbox">
+                                        </span>
+                                        <div class="title-info">
+                                            <h3>Larger storage</h3>
+                                        <span>Extra 1TB of cloud save</span>
+                                        </div>
+                                    </div>
+                                    <span class="price-addon-btn">+$2/mo</span>
+                                </div>
+                            </label>
+                            <label class="option-box" for="checkbox-addon-3">
+                                <input type="checkbox" id="checkbox-addon-3">
+                                <div class="content-container">
+                                    <div class="info-addon">
+                                        <span class="checkbox">
+                                        </span>
+                                        <div class="title-info">
+                                            <h3>Customizable profile</h3>
+                                            <span>Custom theme on your profile</span>
+                                        </div>
+                                    </div>
+                                    <span class="price-addon-btn">+$2/mo</span>
+                                </div>
+                            </label>
+                       </div>
+                    </div>
+                    <div class="btn-container">
+                        <button type="button" onclick=backPage() class="back-btn">Go back</button>
+                        <button type="button" onclick=infoPrices() class="next-btn">Next step</button>
+                    </div>
+                </div>
+
+
+                <div id="step4" class="steps step-4">
+                    <div class="top-step-container">
+                        <div class="title">
+                            <h1>Finishing up</h1>
+                            <span>Double-check everything looks OK before confirming.</span>
+                        </div>
+                        <div class="dados-finais">
+                            <div class="plans">
+                                <div>
+                                    <h4 id="plan-name">Arcade (Monthly)</h4>
+                                    <a href="#" onclick=backPage() >Change</a>
+                                </div>
+                                <span id="plan-price" class="price">
+                                    $9/mo
+                                </span>
+                            </div>
+                            <div class="addons">
+                                
+                            </div>
+                        </div>
+                        <div class="total">
+                            <span id="total-name">Total (per month)</span>
+                            <span id="total-value" class="price-total">+$12/mo</span>
+                        </div>
+
+
+                    </div>
+                    <div class="btn-container">
+                        <button type="button" onclick=backPage() class="back-btn">Go back</button>
+                        <button type="button" class="next-btn">Confirm</button>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/slider.js"></script>
+</body>
+</html>

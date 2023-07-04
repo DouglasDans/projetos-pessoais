@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calculadora de Gorjeta</title>
+</head>
+<body>
+    <div class="background-main">
+        <h3 class="title-calculadora">SPLI<br>TTER</h3>
+        <main class="container-main">
+            <form class="calculadora-dados" action="">
+                <div class="container-input">
+                    <div class="labels-alert">
+                        <label class="label-title" for="">Bill</label>
+                        <span class=" cant-zero-span">Can't be zero!</span>
+                    </div>
+                    <div>
+                        <Span class="label-icon">$</Span>
+                        <input id="money-input" class="input-style" type="number">
+                    </div>
+                </div>
+                <div class="container-input">
+                    <label class="label-title" for="">Select Tip %</label>
+                    <div class="container-buttons">
+                        <input class="porcent-button" type="button" data-action="5" value="5%">
+                        <input class="porcent-button" type="button" data-action="10" value="10%">
+                        <input class="porcent-button" type="button" data-action="15" value="15%">
+                        <input class="porcent-button" type="button" data-action="20" value="20%">
+                        <input class="porcent-button" type="button" data-action="25" value="25%">
+                        <input id="porcent-input" class="porcent-text" type="text" placeholder="Custom">
+                    </div>
+                </div>
+                <div class="container-input">
+                    <div class="labels-alert">
+                        <label class="label-title" for="">Number Of People</label>
+                        <span class="cant-zero-span" >Can't be zero!</span>
+                    </div>
+                    <div>
+                        <Span style="font-family: 'Segoe MDL2 Assets' ; margin-top: 0.7rem;" class="label-icon">&#xE716</Span>
+                        <input id="person-number" class="input-style" type="number">
+                    </div>
+                </div>
+            </form>
+            <div class="calculadora-resultado">
+                <div class="container-info">
+                    <div class="row-info">
+                        <div>
+                            <span>Tip Amont</span>
+                            <small>/ person</small>
+                        </div>
+                        <h1 id="amont-person">&0,00</h1>
+                    </div>
+                    <div class="row-info">
+                        <div>
+                            <span>Total</span>
+                            <small>/ person</small>
+                        </div>
+                        <h1 id="total-person">&0,00</h1>
+                    </div>
+                </div>
+                <button onclick="reset()">RESET</button>
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

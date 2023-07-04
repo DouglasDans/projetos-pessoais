@@ -1,0 +1,142 @@
+.main-container{
+    background-color: #0B0C0E;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: space-around;
+
+    padding: 5rem;
+
+}
+
+.main-container .left-container{
+    background-color: #191B1F;
+    width: 40%;
+    border-radius: 1rem;
+
+    overflow-y: scroll;
+}
+
+.main-container .left-container ul{
+    padding: 0;
+    margin: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.main-container .left-container ul li{
+    display: flex;
+    flex-direction: row;
+
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: #0B0C0E;
+    list-style: none;
+    transition: 200ms;
+}
+
+.main-container .left-container ul li:hover{
+    cursor: pointer;
+    background-color: #101114;
+    transition: 200ms;
+}
+
+.main-container .left-container ul li span{
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.main-container .left-container ul li .play-button{
+    border: 0;
+    border-radius: 10px;
+    padding: 5px 1rem;
+
+    background-color: #238636;
+    font-weight: 600;
+    color: #DFE2E7;
+}
+
+.main-container .left-container ul li.active{
+    background-color: #DFE2E7;
+}
+
+.main-container .left-container ul li.active span{
+    color:#0B0C0E
+}
+
+
+.main-container .right-container{
+    background-color: #191B1F;
+    color: #DFE2E7;
+    border-radius: 10px;
+    padding: 1rem;
+    gap: 0.8rem;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+
+    width: 50%;
+}
+
+.main-container .right-container .title-container{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    color: #DFE2E7;
+    font-weight: 600;
+}
+
+.main-container .right-container .play-button{
+    border: 0;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem ;
+
+    background-color: #238636;
+    font-weight: 600;
+    color: #DFE2E7;
+}
+
+.main-container .right-container #project-image{
+    width: 100%;
+    height: auto;
+
+    border-radius: 10px;
+}
+
+
+@media (max-width: 950px) {
+    .main-container{
+        display: flex;
+        flex-direction: column-reverse;
+
+        gap: 3rem;
+        
+    
+        padding: 4rem;
+        
+        width: auto;
+        height: auto;
+    }
+    .main-container .left-container{
+        width: 100%;
+        overflow-y: visible;
+    }
+    .main-container .right-container{
+        width: 100%;
+    }
+}
