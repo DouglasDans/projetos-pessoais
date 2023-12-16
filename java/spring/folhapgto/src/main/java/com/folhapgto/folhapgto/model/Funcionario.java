@@ -4,12 +4,15 @@ import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Funcionario {
 
-   private @Id @GeneratedValue Long id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
+   private Long id;
    private String name;
    private String cargo;
 
@@ -50,10 +53,9 @@ public class Funcionario {
 
       if (this == o)
          return true;
-      if (!(o instanceof Funcionario))
+      if (!(o instanceof Funcionario funcionario))
          return false;
 
-      Funcionario funcionario = (Funcionario) o;
       return Objects.equals(this.id, funcionario.id) && Objects.equals(this.name, funcionario.name)
             && Objects.equals(this.cargo, funcionario.cargo);
    }
@@ -65,7 +67,7 @@ public class Funcionario {
 
    @Override
    public String toString() {
-      return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.cargo + '\'' + '}';
+      return "Employee{" + "id=" + this.id + ", nome='" + this.name + '\'' + ", cargo='" + this.cargo + '\'' + '}';
    }
 
 }

@@ -17,7 +17,7 @@ public class LoadDatabase {
    @Bean
    CommandLineRunner initDatabase(IFuncionarioRepository funcionarioRepository) {
       return args -> {
-         log.info("Carregando" + funcionarioRepository.save(new Funcionario("Douglas", "programador")));
+         log.info("Carregando" + funcionarioRepository.save(new Funcionario("Douglas", "Programador")));
       };
    }
 }

@@ -5,5 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IFuncionarioRepository extends JpaRepository<Funcionario, Long> {
+
    public Optional<Funcionario> findById(Long id);
+
+   public List<Funcionario> findByNameIgnoringCaseContaining(String name);
 }
