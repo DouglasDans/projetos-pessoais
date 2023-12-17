@@ -31,8 +31,27 @@ public class FuncionarioAPIController {
     @CrossOrigin
     @PostMapping("funcionario")
     @Transactional
-    public ResponseEntity<Object> cadastrarFuncionario(@RequestBody Funcionario funcionario){
+    public ResponseEntity<Object> cadastrarFuncionario(@RequestBody Funcionario funcionario) {
         log.info(">>> APIController - cadastrarFuncionario");
         return ResponseEntity.status(HttpStatus.OK).body(funcionarioService.cadastroFuncionario(funcionario));
+    }
+
+    @CrossOrigin
+    @PatchMapping("funcionario/{id}")
+    @Transactional
+    public ResponseEntity<Object> updateFuncionario(@RequestBody Funcionario funcionario, @PathVariable Long id) {
+        log.info(">>> APIController - updateFuncionario");
+        return ResponseEntity.status(HttpStatus.OK).body(funcionarioService.atualizarFuncionario(funcionario));
+    }
+
+    @CrossOrigin
+    @DeleteMapping("funcionario/{id}")
+    @Transactional
+    public void deleteFuncionario(@PathVariable Long id) {
+        log.info(">>> APIController - deleteFuncionario");
+
+        funcionarioService.excluirFuncionario(id);
+
+        // return ResponseEntity.status(HttpStatus.OK).body();
     }
 }
