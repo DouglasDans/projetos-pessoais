@@ -1,0 +1,30 @@
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.colorfull-btn {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
+  text-align: center;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.colorfull-btn:nth-child(1) { background-color: #EED5C2 }
+.colorfull-btn:nth-child(2) { background-color: #EDA4BD }
+.colorfull-btn:nth-child(3) { background-color: #EB7BC0 }
+.colorfull-btn:nth-child(4) { background-color: #C46BAE }
+.colorfull-btn:nth-child(5) { background-color: #7C606B }
